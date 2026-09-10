@@ -4,34 +4,46 @@ import ResearchItem from './ResearchItem';
 const Research = () => {
   const researchPartners = [
     {
-      logoSrc: "/placeholder.svg",
       name: "King's College London",
-      description: "Neurodevelopmental Disorders Lab and RADAR-base platform for remote monitoring technology"
+      initials: "KCL",
+      category: "Remote Monitoring",
+      accentColor: "bg-indigo-600",
+      description: "Neurodevelopmental Disorders Lab and RADAR-base platform for continuous passive sensor monitoring technology."
     },
     {
-      logoSrc: "/placeholder.svg",
       name: "University of Huddersfield",
-      description: "AI diagnostic algorithms for ADHD assessment and monitoring"
+      initials: "HUD",
+      category: "Diagnostic AI",
+      accentColor: "bg-purple-600",
+      description: "Machine learning algorithms and diagnostic classifiers tailored for executive dysfunction profiling."
     },
     {
-      logoSrc: "/placeholder.svg",
       name: "R2D2-MH Consortium",
-      description: "Resilience-focused models for mental health transition"
+      initials: "R2D2",
+      category: "Resilience Science",
+      accentColor: "bg-emerald-600",
+      description: "EU Horizon resilience-focused frameworks for navigating neurodevelopmental health and transition."
     },
     {
-      logoSrc: "/placeholder.svg",
       name: "Trinity College Dublin",
-      description: "Digital treatment protocols and ADMiRE's red-flag system"
+      initials: "TCD",
+      category: "Clinical Pathways",
+      accentColor: "bg-blue-600",
+      description: "Digital treatment protocols and ADMiRE early-detection red-flag and escalation architecture."
     },
     {
-      logoSrc: "/placeholder.svg",
-      name: "Andrew Huberman",
-      description: "Neuroscience-based protocols for ADHD management"
+      name: "Andrew Huberman Lab",
+      initials: "HUB",
+      category: "Neurobiology",
+      accentColor: "bg-amber-600",
+      description: "Science-based protocols for dopamine scheduling, circadian alignment, and focus state optimization."
     },
     {
-      logoSrc: "/placeholder.svg",
-      name: "Dr. Hallowell",
-      description: "Strengths-based approach to ADHD management (Sheng methodology)"
+      name: "Dr. Edward Hallowell",
+      initials: "HAL",
+      category: "Strength-Based",
+      accentColor: "bg-rose-600",
+      description: "Pioneering Strengths-based approach (Sheng methodology) reframing ADHD as a trait to harness."
     }
   ];
 
@@ -46,8 +58,10 @@ const Research = () => {
           {researchPartners.map((partner, index) => (
             <ResearchItem 
               key={index}
-              logoSrc={partner.logoSrc}
               name={partner.name}
+              initials={partner.initials}
+              category={partner.category}
+              accentColor={partner.accentColor}
               description={partner.description}
             />
           ))}
