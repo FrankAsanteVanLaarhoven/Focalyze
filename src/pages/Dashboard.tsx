@@ -47,6 +47,20 @@ const Dashboard = () => {
       icon: Play,
       link: "/transition",
       color: "bg-amber-500"
+    },
+    {
+      title: "Mentor Portal",
+      description: "Screening tools and observation logs for clinicians",
+      icon: Users,
+      link: "/mentor",
+      color: "bg-indigo-500"
+    },
+    {
+      title: "PTSD Support",
+      description: "Grounding exercises, journal and crisis resources",
+      icon: CheckCircle,
+      link: "/ptsd",
+      color: "bg-teal-500"
     }
   ];
 

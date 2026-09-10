@@ -20,6 +20,9 @@ import Transition from "./pages/Transition";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import MentorPortal from "./pages/MentorPortal";
+import ChildrenMode from "./pages/ChildrenMode";
+import PTSDSupport from "./pages/PTSDSupport";
 import PrivateRoute from "./components/PrivateRoute";
 
 // Create a QueryClient for React Query
@@ -41,7 +44,11 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                
+
+                {/* Public feature routes — no login required */}
+                <Route path="/children" element={<ChildrenMode />} />
+                <Route path="/ptsd" element={<PTSDSupport />} />
+
                 {/* Protected Routes */}
                 <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                 <Route path="/monitoring" element={<PrivateRoute><Monitoring /></PrivateRoute>} />
@@ -49,6 +56,7 @@ const App = () => {
                 <Route path="/self-management" element={<PrivateRoute><SelfManagement /></PrivateRoute>} />
                 <Route path="/transition" element={<PrivateRoute><Transition /></PrivateRoute>} />
                 <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+                <Route path="/mentor" element={<PrivateRoute><MentorPortal /></PrivateRoute>} />
                 
                 {/* Catch-all route */}
                 <Route path="*" element={<NotFound />} />
