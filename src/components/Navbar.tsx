@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
+import FocalyzeLogo from '@/components/FocalyzeLogo';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +33,9 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <a href="#" className="text-xl font-bold text-adhd-primary">Focalyze</a>
+          <a href="#" aria-label="Focalyze home">
+            <FocalyzeLogo size={36} />
+          </a>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

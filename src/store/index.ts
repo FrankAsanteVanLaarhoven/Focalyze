@@ -2,7 +2,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import storage from 'redux-persist/lib/storage'; // localStorage for web
 
 // Import slices
 import authReducer from './slices/authSlice';
@@ -14,8 +14,8 @@ import selfManagementReducer from './slices/selfManagementSlice';
 
 // Configure persist
 const persistConfig = {
-  key: 'root',
-  storage: AsyncStorage,
+  key: 'focalyze-root',
+  storage,
   whitelist: ['auth', 'settings'], // Only persist these reducers
 };
 

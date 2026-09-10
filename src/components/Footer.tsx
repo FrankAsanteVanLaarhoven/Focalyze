@@ -1,4 +1,5 @@
 
+import FocalyzeLogo from '@/components/FocalyzeLogo';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
@@ -7,7 +8,11 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-adhd-primary mb-2">Focalyze</h2>
+            <FocalyzeLogo
+              size={28}
+              textClassName="text-xl font-bold text-white"
+              className="mb-2"
+            />
             <p className="text-gray-400">ADHD management, reimagined.</p>
           </div>
           
