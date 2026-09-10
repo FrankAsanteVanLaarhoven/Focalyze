@@ -1,13 +1,18 @@
 
 import ContactForm from './ContactForm';
-import { Mail, Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Mail, MapPin, Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      content: 'hello@focalyze.app'
+      content: 'Frankleroyvan@gmail.com'
+    },
+    {
+      icon: MapPin,
+      title: 'Location',
+      content: 'London, UK'
     }
   ];
 
