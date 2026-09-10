@@ -1,6 +1,6 @@
 
 import ContactForm from './ContactForm';
-import { Mail, Phone, MapPin, Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Mail, Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
@@ -8,16 +8,6 @@ const Contact = () => {
       icon: Mail,
       title: 'Email',
       content: 'hello@focalyze.app'
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      content: '+1 (555) 123-4567'
-    },
-    {
-      icon: MapPin,
-      title: 'Address',
-      content: '123 Innovation Way, San Francisco, CA 94103'
     }
   ];
 
