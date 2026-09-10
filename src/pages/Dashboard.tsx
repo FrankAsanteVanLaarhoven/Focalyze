@@ -15,6 +15,17 @@ import UpcomingActivities from '@/components/dashboard/UpcomingActivities';
 import FocusTracker from '@/components/dashboard/FocusTracker';
 import SprintOverview from '@/components/dashboard/SprintOverview';
 import MilestoneProgress from '@/components/dashboard/MilestoneProgress';
+import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
+const weeklyTrendData = [
+  { day: 'Mon', morning: 6.5, afternoon: 5.2, medication: true },
+  { day: 'Tue', morning: 8.0, afternoon: 7.1, medication: true },
+  { day: 'Wed', morning: 7.2, afternoon: 6.0, medication: true },
+  { day: 'Thu', morning: 8.5, afternoon: 7.8, medication: true },
+  { day: 'Fri', morning: 6.8, afternoon: 5.5, medication: false },
+  { day: 'Sat', morning: 7.4, afternoon: 6.9, medication: true },
+  { day: 'Sun', morning: 8.2, afternoon: 7.5, medication: true },
+];
 
 const Dashboard = () => {
   const { user } = useAppSelector(state => state.auth);
@@ -183,7 +194,7 @@ const Dashboard = () => {
           ))}
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs defaultValue="overview" className="w-full">
           <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="focusTracker">Focus Tracker</TabsTrigger>
@@ -200,8 +211,73 @@ const Dashboard = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="h-80 flex items-center justify-center border border-dashed rounded-md">
-                  <p className="text-gray-500">Focus trend chart will appear here</p>
+                <div className="h-80 w-full pt-2">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={weeklyTrendData} margin={{ top: 10, right: 20, left: -20, bottom: 0 }}>
+                      <defs>
+                        <linearGradient id="morningGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.35} />
+                          <stop offset="95%" stopColor="#4f46e5" stopOpacity={0.0} />
+                        </linearGradient>
+                        <linearGradient id="afternoonGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.3} />
+                          <stop offset="95%" stopColor="#06b6d4" stopOpacity={0.0} />
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+                      <XAxis dataKey="day" stroke="#94a3b8" fontSize={12} tickLine={false} />
+                      <YAxis domain={[0, 10]} stroke="#94a3b8" fontSize={12} tickLine={false} />
+                      <Tooltip
+                        content={({ active, payload, label }) => {
+                          if (active && payload && payload.length) {
+                            return (
+                              <div className="bg-white p-3 rounded-lg shadow-xl border border-slate-100 text-xs">
+                                <p className="font-semibold text-slate-800 mb-1">{label} Focus Analysis</p>
+                                <div className="flex items-center space-x-2 text-indigo-600 font-medium">
+                                  <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                                  <span>Morning Focus: {payload[0]?.value}/10</span>
+                                </div>
+                                <div className="flex items-center space-x-2 text-cyan-600 font-medium mt-0.5">
+                                  <span className="w-2 h-2 rounded-full bg-cyan-500"></span>
+                                  <span>Afternoon Focus: {payload[1]?.value}/10</span>
+                                </div>
+                                <div className="mt-1.5 pt-1.5 border-t border-slate-100 text-[11px] text-slate-500 flex justify-between">
+                                  <span>Medication: Active</span>
+                                  <span className="text-emerald-600 font-semibold">+18% vs Baseline</span>
+                                </div>
+                              </div>
+                            );
+                          }
+                          return null;
+                        }}
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="morning"
+                        name="Morning Focus"
+                        stroke="#4f46e5"
+                        strokeWidth={2.5}
+                        fillOpacity={1}
+                        fill="url(#morningGrad)"
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="afternoon"
+                        name="Afternoon Focus"
+                        stroke="#06b6d4"
+                        strokeWidth={2}
+                        fillOpacity={1}
+                        fill="url(#afternoonGrad)"
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                  <div className="flex items-center justify-between px-3 pt-2 text-xs text-slate-500 border-t border-slate-100 mt-2">
+                    <div className="flex items-center space-x-4">
+                      <span className="flex items-center"><span className="w-2.5 h-2.5 bg-indigo-600 rounded-full mr-1.5"></span>Morning Window</span>
+                      <span className="flex items-center"><span className="w-2.5 h-2.5 bg-cyan-500 rounded-full mr-1.5"></span>Afternoon Window</span>
+                    </div>
+                    <span className="font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+1.4 pts with morning protein</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
