@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BarChart, Calendar, CheckCircle, Clock, Play, TrendingUp, Users } from 'lucide-react';
+import { BarChart, Brain, Calendar, CheckCircle, Clock, HeartPulse, Play, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MainLayout from '@/layouts/MainLayout';
 import UpcomingActivities from '@/components/dashboard/UpcomingActivities';
@@ -51,14 +51,14 @@ const Dashboard = () => {
     {
       title: "Mentor Portal",
       description: "Screening tools and observation logs for clinicians",
-      icon: Users,
+      icon: Brain,
       link: "/mentor",
       color: "bg-indigo-500"
     },
     {
       title: "PTSD Support",
       description: "Grounding exercises, journal and crisis resources",
-      icon: CheckCircle,
+      icon: HeartPulse,
       link: "/ptsd",
       color: "bg-teal-500"
     }
@@ -73,7 +73,7 @@ const Dashboard = () => {
               Welcome back, {user?.name || 'User'}
             </h1>
             <p className="text-gray-600 mt-1">
-              Here's an overview of your ADHD management journey
+              Here's your Focalyze overview
             </p>
           </div>
           <Button className="bg-adhd-primary hover:bg-adhd-secondary">
@@ -143,7 +143,7 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {modules.map((module, index) => (
             <Link to={module.link} key={index}>
               <Card className="h-full hover:shadow-md transition-shadow cursor-pointer">
