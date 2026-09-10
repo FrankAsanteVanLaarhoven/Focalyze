@@ -19,6 +19,7 @@ import SelfManagement from "./pages/SelfManagement";
 import Transition from "./pages/Transition";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
 import Profile from "./pages/Profile";
 import MentorPortal from "./pages/MentorPortal";
 import ChildrenMode from "./pages/ChildrenMode";
@@ -44,6 +45,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
 
                 {/* Public feature routes — no login required */}
                 <Route path="/children" element={<ChildrenMode />} />

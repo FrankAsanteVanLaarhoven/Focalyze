@@ -211,19 +211,43 @@ const SelfManagement = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <a href="#" className="block p-4 border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
-                      <h3 className="font-medium">Huberman Lab: ADHD Protocol</h3>
-                      <p className="text-sm text-gray-600 mt-1">Science-based approaches to managing ADHD symptoms</p>
+                    <a
+                      href="https://www.hubermanlab.com/episode/adhd-and-how-to-improve-focus"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-4 border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors group"
+                    >
+                      <div className="flex justify-between items-center">
+                        <h3 className="font-medium group-hover:text-adhd-primary transition-colors">Huberman Lab: ADHD Protocol</h3>
+                        <span className="text-xs text-gray-400">External ↗</span>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-1">Science-based approaches to dopamine regulation and managing ADHD focus</p>
                     </a>
                     
-                    <a href="#" className="block p-4 border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
-                      <h3 className="font-medium">Dr. Hallowell: Strengths Approach</h3>
+                    <a
+                      href="https://drhallowell.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-4 border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors group"
+                    >
+                      <div className="flex justify-between items-center">
+                        <h3 className="font-medium group-hover:text-adhd-primary transition-colors">Dr. Hallowell: Strengths Approach</h3>
+                        <span className="text-xs text-gray-400">External ↗</span>
+                      </div>
                       <p className="text-sm text-gray-600 mt-1">Leveraging ADHD-related strengths using the Sheng methodology</p>
                     </a>
                     
-                    <a href="#" className="block p-4 border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
-                      <h3 className="font-medium">R2D2-MH: Resilience Models</h3>
-                      <p className="text-sm text-gray-600 mt-1">Building resilience during healthcare transitions</p>
+                    <a
+                      href="https://www.nice.org.uk/guidance/ng87"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-4 border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors group"
+                    >
+                      <div className="flex justify-between items-center">
+                        <h3 className="font-medium group-hover:text-adhd-primary transition-colors">NICE NG87: Transition & Care Resilience</h3>
+                        <span className="text-xs text-gray-400">External ↗</span>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-1">National clinical standards for young adult ADHD transition and continuity of care</p>
                     </a>
                   </div>
                 </CardContent>

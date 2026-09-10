@@ -134,13 +134,29 @@ const SprintOverview = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              <a href="#" className="block p-3 rounded-md border hover:bg-gray-50 transition-colors">
-                <h3 className="font-medium">Huberman Lab: Morning Routine Protocol</h3>
-                <p className="text-sm text-gray-600">Science-backed strategies for optimal morning routines</p>
+              <a
+                href="https://www.hubermanlab.com/episode/adhd-and-how-to-improve-focus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-3 rounded-md border hover:bg-gray-50 transition-colors group"
+              >
+                <div className="flex justify-between items-center">
+                  <h3 className="font-medium group-hover:text-adhd-primary transition-colors">Huberman Lab: Morning Routine Protocol</h3>
+                  <span className="text-xs text-gray-400">↗</span>
+                </div>
+                <p className="text-sm text-gray-600 mt-0.5">Science-backed strategies for circadian rhythm and focus</p>
               </a>
-              <a href="#" className="block p-3 rounded-md border hover:bg-gray-50 transition-colors">
-                <h3 className="font-medium">Dr. Hallowell: The ADHD-Friendly Morning</h3>
-                <p className="text-sm text-gray-600">Strength-based approaches to start your day</p>
+              <a
+                href="https://drhallowell.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-3 rounded-md border hover:bg-gray-50 transition-colors group"
+              >
+                <div className="flex justify-between items-center">
+                  <h3 className="font-medium group-hover:text-adhd-primary transition-colors">Dr. Hallowell: The ADHD-Friendly Morning</h3>
+                  <span className="text-xs text-gray-400">↗</span>
+                </div>
+                <p className="text-sm text-gray-600 mt-0.5">Strength-based approaches to kickstart executive function</p>
               </a>
             </div>
           </CardContent>

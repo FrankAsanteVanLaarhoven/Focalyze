@@ -1,26 +1,28 @@
-
+import React from 'react';
 import ContactForm from './ContactForm';
-import { Mail, MapPin, Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Mail, MapPin, Twitter, Linkedin, Instagram, Github } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      content: 'Frankleroyvan@gmail.com'
+      content: 'Frankleroyvan@gmail.com',
+      href: 'mailto:Frankleroyvan@gmail.com'
     },
     {
       icon: MapPin,
       title: 'Location',
-      content: 'London, UK'
+      content: 'London, UK',
+      href: null
     }
   ];
 
   const socialLinks = [
-    { icon: Twitter, url: '#', label: 'Twitter' },
-    { icon: Linkedin, url: '#', label: 'LinkedIn' },
-    { icon: Facebook, url: '#', label: 'Facebook' },
-    { icon: Instagram, url: '#', label: 'Instagram' }
+    { icon: Github, url: 'https://github.com/FrankAsanteVanLaarhoven/Focalyze', label: 'GitHub Repository' },
+    { icon: Linkedin, url: 'https://www.linkedin.com', label: 'LinkedIn' },
+    { icon: Twitter, url: 'https://twitter.com', label: 'Twitter' },
+    { icon: Instagram, url: 'https://www.instagram.com', label: 'Instagram' }
   ];
 
   return (
@@ -41,7 +43,16 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-adhd-dark mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.content}</p>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="text-gray-600 hover:text-adhd-primary transition-colors underline-offset-4 hover:underline"
+                    >
+                      {item.content}
+                    </a>
+                  ) : (
+                    <p className="text-gray-600">{item.content}</p>
+                  )}
                 </div>
               </div>
             ))}
@@ -54,7 +65,10 @@ const Contact = () => {
                     key={index}
                     href={social.url}
                     aria-label={social.label}
-                    className="p-3 bg-adhd-light rounded-full text-adhd-primary hover:bg-adhd-primary hover:text-white transition-colors duration-300"
+                    title={social.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-adhd-light rounded-full text-adhd-primary hover:bg-adhd-primary hover:text-white transition-colors duration-300 shadow-sm hover:shadow"
                   >
                     <social.icon size={24} />
                   </a>
