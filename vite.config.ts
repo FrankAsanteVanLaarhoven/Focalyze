@@ -33,6 +33,7 @@ export default defineConfig({
           'vendor-state': ['@reduxjs/toolkit', 'react-redux', 'redux-persist'],
           'vendor-query': ['@tanstack/react-query'],
           'vendor-charts': ['recharts'],
+          'vendor-three': ['three'],
         },
       },
     },

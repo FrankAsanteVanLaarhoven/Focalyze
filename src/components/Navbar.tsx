@@ -59,12 +59,31 @@ const Navbar = () => {
               </a>
             ))}
 
-            <div className="flex items-center gap-2 border-l pl-4 ml-1">
+            <div className="flex items-center gap-1.5 border-l pl-3 ml-1">
+              <Link to="/biofeedback">
+                <Button variant="ghost" size="sm" className="text-xs text-rose-600 hover:text-rose-700 hover:bg-rose-50 font-semibold px-2">
+                  ❤️ Heart Biofeedback
+                </Button>
+              </Link>
+              <Link to="/neuro-3d">
+                <Button variant="ghost" size="sm" className="text-xs text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 font-semibold px-2">
+                  🧠 3D Brain
+                </Button>
+              </Link>
+              <Link to="/expert">
+                <Button variant="outline" size="sm" className="text-xs border-indigo-300 text-indigo-700 bg-indigo-50/50 hover:bg-indigo-100 font-semibold px-2.5">
+                  🩺 1:1 Expert
+                </Button>
+              </Link>
               <Link to="/children">
-                <Button variant="outline" size="sm" className="text-xs">👶 Children's Mode</Button>
+                <Button variant="ghost" size="sm" className="text-xs text-amber-700 hover:bg-amber-50 px-2">
+                  👶 Children's
+                </Button>
               </Link>
               <Link to="/ptsd">
-                <Button variant="outline" size="sm" className="text-xs">💜 PTSD Support</Button>
+                <Button variant="ghost" size="sm" className="text-xs text-teal-700 hover:bg-teal-50 px-2">
+                  💜 PTSD
+                </Button>
               </Link>
 
               {isAuthenticated ? (
@@ -111,6 +130,9 @@ const Navbar = () => {
                 </a>
               ))}
               <hr className="border-gray-100" />
+              <Link to="/biofeedback" className="text-rose-600 font-medium py-2 flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>❤️ Heart Biofeedback & HRV</Link>
+              <Link to="/neuro-3d" className="text-indigo-600 font-medium py-2 flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>🧠 3D Brain & Synapses</Link>
+              <Link to="/expert" className="text-indigo-900 font-medium py-2 flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>🩺 1:1 Teletherapy & Expert</Link>
               <Link to="/children" className="text-gray-700 hover:text-adhd-primary py-2" onClick={() => setIsMenuOpen(false)}>👶 Children's Mode</Link>
               <Link to="/ptsd" className="text-gray-700 hover:text-adhd-primary py-2" onClick={() => setIsMenuOpen(false)}>💜 PTSD Support</Link>
               {isAuthenticated ? (

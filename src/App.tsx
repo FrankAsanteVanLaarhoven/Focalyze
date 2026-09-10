@@ -24,6 +24,9 @@ import Profile from "./pages/Profile";
 import MentorPortal from "./pages/MentorPortal";
 import ChildrenMode from "./pages/ChildrenMode";
 import PTSDSupport from "./pages/PTSDSupport";
+import Biofeedback from "./pages/Biofeedback";
+import Neuro3D from "./pages/Neuro3D";
+import AskExpert from "./pages/AskExpert";
 import PrivateRoute from "./components/PrivateRoute";
 
 // Create a QueryClient for React Query
@@ -47,9 +50,12 @@ const App = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
 
-                {/* Public feature routes — no login required */}
+                {/* Public flagship feature routes */}
                 <Route path="/children" element={<ChildrenMode />} />
                 <Route path="/ptsd" element={<PTSDSupport />} />
+                <Route path="/biofeedback" element={<Biofeedback />} />
+                <Route path="/neuro-3d" element={<Neuro3D />} />
+                <Route path="/expert" element={<AskExpert />} />
 
                 {/* Protected Routes */}
                 <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />

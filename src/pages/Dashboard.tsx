@@ -5,7 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BarChart, Brain, Calendar, CheckCircle, Clock, HeartPulse, Play, TrendingUp, Users } from 'lucide-react';
+import { 
+  BarChart, Brain, Calendar, CheckCircle, Clock, HeartPulse, Play, 
+  TrendingUp, Users, Heart, Sparkles, Video 
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MainLayout from '@/layouts/MainLayout';
 import UpcomingActivities from '@/components/dashboard/UpcomingActivities';
@@ -20,6 +23,27 @@ const Dashboard = () => {
   const [transitionProgress] = useState(65);
   
   const modules = [
+    {
+      title: "1:1 Expert Teletherapy",
+      description: "Book certified NHS/GMC transition psychiatrists & coaches",
+      icon: Video,
+      link: "/expert",
+      color: "bg-emerald-600"
+    },
+    {
+      title: "Heart Biofeedback & HRV",
+      description: "Real cardiac pulse sound & vagal coherence pacer",
+      icon: Heart,
+      link: "/biofeedback",
+      color: "bg-rose-600"
+    },
+    {
+      title: "3D Brain & Synapses",
+      description: "Interactive WebGL fronto-striatal dopamine circuits",
+      icon: Sparkles,
+      link: "/neuro-3d",
+      color: "bg-indigo-600"
+    },
     {
       title: "AI-Powered Monitoring",
       description: "Track your focus, activity, and sleep patterns",

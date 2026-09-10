@@ -5,7 +5,8 @@ import { logout } from '@/store/slices/authSlice';
 import FocalyzeLogo from '@/components/FocalyzeLogo';
 import {
   LayoutDashboard, TrendingUp, Users, CheckCircle, Repeat2,
-  Brain, HeartPulse, Baby, LogOut, User, ChevronRight, Home
+  Brain, HeartPulse, Baby, LogOut, User, ChevronRight, Home,
+  Heart, Sparkles, Video
 } from 'lucide-react';
 
 interface NavItem {
@@ -24,9 +25,12 @@ const mainNav: NavItem[] = [
 ];
 
 const specialisedNav: NavItem[] = [
-  { label: 'Mentor Portal',      to: '/mentor',   icon: Brain,     badge: 'Pro' },
-  { label: 'PTSD Support',       to: '/ptsd',     icon: HeartPulse },
-  { label: "Children's Mode",    to: '/children', icon: Baby },
+  { label: '1:1 Teletherapy',    to: '/expert',       icon: Video,      badge: '1:1' },
+  { label: 'Heart Biofeedback',  to: '/biofeedback',  icon: Heart,      badge: 'Live' },
+  { label: '3D Brain Explorer',  to: '/neuro-3d',     icon: Sparkles,   badge: '3D' },
+  { label: 'Mentor Portal',      to: '/mentor',       icon: Brain,      badge: 'Pro' },
+  { label: 'PTSD Support',       to: '/ptsd',         icon: HeartPulse },
+  { label: "Children's Mode",    to: '/children',     icon: Baby },
 ];
 
 const AppSidebar = () => {
