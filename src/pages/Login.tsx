@@ -25,27 +25,26 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      // In a real app, you'd dispatch a login action here
       dispatch({
         type: 'auth/loginSuccess',
-        payload: { id: '1', email, name: 'Test User' }
+        payload: { id: '1', email: email || 'user@focalyze.app', name: email ? email.split('@')[0] : 'User' }
       });
-      
-      toast({
-        title: "Login successful",
-        description: "Welcome back to Focalyze",
-      });
-      
+      toast({ title: "Welcome back!", description: "Signed in to Focalyze" });
       navigate('/dashboard');
     } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Login failed",
-        description: "Please check your credentials and try again",
-      });
+      toast({ variant: "destructive", title: "Login failed", description: "Please try again" });
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleDemo = () => {
+    dispatch({
+      type: 'auth/loginSuccess',
+      payload: { id: 'demo', email: 'demo@focalyze.app', name: 'Demo User' }
+    });
+    toast({ title: "Demo Mode 🚀", description: "Exploring Focalyze — no account needed" });
+    navigate('/dashboard');
   };
 
   return (
@@ -106,11 +105,25 @@ const Login = () => {
               </Button>
             </form>
           </CardContent>
-          <CardFooter className="flex flex-col space-y-4">
-            <div className="text-center text-sm">
+          <CardFooter className="flex flex-col space-y-3">
+            <div className="relative w-full">
+              <div className="absolute inset-0 flex items-center"><span className="w-full border-t" /></div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-white px-2 text-gray-400">or</span>
+              </div>
+            </div>
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full border-adhd-primary text-adhd-primary hover:bg-adhd-primary hover:text-white transition-colors"
+              onClick={handleDemo}
+            >
+              🚀 Try Demo — No Account Needed
+            </Button>
+            <div className="text-center text-sm text-gray-500">
               Don't have an account?{" "}
               <Link to="/register" className="text-adhd-primary hover:underline font-medium">
-                Sign up
+                Sign up free
               </Link>
             </div>
           </CardFooter>

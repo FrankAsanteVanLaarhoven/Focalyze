@@ -1,13 +1,12 @@
 
 import React, { useEffect } from 'react';
-import { Sidebar, SidebarProvider } from '@/components/ui/sidebar';
+import AppSidebar from '@/components/AppSidebar';
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  // Add effect to set the background class
   useEffect(() => {
     document.body.classList.add('bg-background');
     return () => {
@@ -16,14 +15,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   }, []);
 
   return (
-    <SidebarProvider>
-      <div className="flex min-h-screen w-full bg-background">
-        <Sidebar />
-        <div className="flex-1 overflow-auto">
-          <main>{children}</main>
-        </div>
+    <div className="flex min-h-screen w-full bg-gray-50">
+      <AppSidebar />
+      {/* Content offset by sidebar width (w-60 = 240px) */}
+      <div className="flex-1 ml-60 overflow-auto min-h-screen">
+        <main className="min-h-full">{children}</main>
       </div>
-    </SidebarProvider>
+    </div>
   );
 };
 
